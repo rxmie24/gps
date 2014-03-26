@@ -59,11 +59,9 @@ public class MapEngine implements PositionListener {
 		List<InterceptPoint> tmp = _navMap.calculateIntersections(this._mapView.getUserPoint(),
 				this._mapView.getDestinationPoint());
 
-		if (tmp.size() == 0)
-			_mapView.setUserPath(Arrays.asList(this._mapView.getUserPoint(), this._mapView.getDestinationPoint()));
-		else
-			_mapView.setUserPath(pathFinder(this._mapView.getUserPoint(), this._mapView.getDestinationPoint()));
-
+		this._mapView.setUserPath(tmp.size() == 0 ? Arrays.asList(this._mapView.getUserPoint(),
+				this._mapView.getDestinationPoint()) : pathFinder(this._mapView.getUserPoint(),
+				this._mapView.getDestinationPoint()));
 		this.userArrivalCheck();
 	}
 

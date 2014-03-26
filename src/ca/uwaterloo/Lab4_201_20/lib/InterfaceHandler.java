@@ -13,23 +13,22 @@ public class InterfaceHandler {
 		Graph, StepCounter, NorthSteps, EastSteps, Orientation, DestinationReached
 	}
 
-	private HashMap<UIObject, TextView> _objHash;
+	private HashMap<UIObject, TextView> _tvHash;
 
 	private InterfaceHandler() {
-		_objHash = new HashMap<UIObject, TextView>();
+		_tvHash = new HashMap<UIObject, TextView>();
 	}
 
 	public void setLabel(TextView inTextView_, UIObject inLabel_) {
-		if (this._objHash.containsKey(inLabel_) == false)
-			this._objHash.put(inLabel_, inTextView_);
+		if (this._tvHash.containsKey(inLabel_) == false)
+			this._tvHash.put(inLabel_, inTextView_);
 	}
 
 	public void setLabelText(String inText_, UIObject inLabel_) {
-		if (this._objHash.containsKey(inLabel_) == true) {
-			TextView tmp = this._objHash.get(inLabel_);
-			if (tmp != null) {
+		if (this._tvHash.containsKey(inLabel_) == true) {
+			TextView tmp = this._tvHash.get(inLabel_);
+			if (tmp != null)
 				tmp.setText(inText_);
-			}
 		}
 	}
 
